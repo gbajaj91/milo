@@ -1,4 +1,4 @@
-// branch: stable commit: d93a08fc2123843319c48865f2b71b9ee0b4f5ed Wed, 24 Apr 2024 15:49:31 GMT
+// branch: MWPW-146856 commit: b07053c57025e9495d6d383f18fe94cd6d33dc7c Tue, 30 Apr 2024 04:08:07 GMT
 import{html as n,LitElement as O}from"/libs/deps/lit-all.min.js";import{css as v,unsafeCSS as x}from"/libs/deps/lit-all.min.js";var m="(max-width: 767px)";var i="(min-width: 768px)",c="(min-width: 1200px)",h="(min-width: 1600px)";var k=v`
     :host {
         position: relative;
@@ -895,6 +895,7 @@ div[slot='bg-image'] img {
     :root {
         --consonant-merch-card-mini-compare-chart-width: 142px;
         --consonant-merch-card-special-offers-width: 302px;
+        --consonant-merch-card-segment-mobile-width: 302px;
     }
 }
 
@@ -1060,6 +1061,15 @@ div[slot='bg-image'] img {
 .three-merch-cards.segment,
 .four-merch-cards.segment {
     grid-template-columns: minmax(276px, var(--consonant-merch-card-segment-width));
+}
+
+/* Mobile */
+@media screen and ${m} {
+    .two-merch-cards.segment,
+    .three-merch-cards.segment,
+    .four-merch-cards.segment {
+        grid-template-columns: var(--consonant-merch-card-segment-mobile-width);
+    }
 }
 
 /* Tablet */
@@ -1328,7 +1338,6 @@ merch-card .footer-row-cell:nth-child(8) {
                 >
                 <slot name="heading-xs"></slot>
                 <slot name="heading-m"></slot>
-                <slot name="body-xxs"></slot>
                 <slot name="body-xs"></slot>
             </div>
             ${this.secureLabelFooter}`}renderImage(){return n`${this.cardImage}
