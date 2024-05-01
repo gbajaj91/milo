@@ -1,4 +1,4 @@
-// branch: MWPW-146856 commit: d57bde4047f79e8206f20c07d91ee742bb0e184b Tue, 30 Apr 2024 19:52:45 GMT
+// branch: MWPW-146856 commit: d57bde4047f79e8206f20c07d91ee742bb0e184b Wed, 01 May 2024 13:13:06 GMT
 import{html as n,LitElement as N}from"/libs/deps/lit-all.min.js";import{css as v,unsafeCSS as x}from"/libs/deps/lit-all.min.js";var d="(max-width: 767px)";var i="(min-width: 768px)",c="(min-width: 1200px)",s="(min-width: 1600px)";var E=v`
     :host {
         position: relative;
@@ -1009,6 +1009,7 @@ div[slot='bg-image'] img {
         --consonant-merch-card-plans-width: 302px;
         --consonant-merch-card-mini-compare-chart-width: 302px;
         --consonant-merch-card-special-offers-width: 302px;
+        --consonant-merch-card-segment-mobile-width: 302px;
         --consonant-merch-card-twp-width: 268px;
     }
 }
@@ -1181,7 +1182,7 @@ div[slot='bg-image'] img {
     .two-merch-cards.segment,
     .three-merch-cards.segment,
     .four-merch-cards.segment {
-        grid-template-columns: repeat(2, minmax(276px, var(--consonant-merch-card-segment-width)));
+        grid-template-columns: repeat(2, var(--consonant-merch-card-segment-mobile-width));
     }
 }
 
