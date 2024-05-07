@@ -159,15 +159,20 @@ const enableWAMButton = () => {
 
 const loadWamConfig = async (getConfig, loadScript) => {
   enableWAMButton();
-  var urlString = window.location.href;
-  var url = new URL(urlString);
-  var searchParams = new URLSearchParams(url.search);
+  const {
+    env: { name },
+  } = getConfig();
+  const urlString = window.location.href;
+  const url = new URL(urlString);
+  const searchParams = new URLSearchParams(url.search);
+  const scriptUrl =
+    name === 'prod'
+      ? 'https://prod.adobeccstatic.com/wamclient/0.1/wamclient.js'
+      : 'https://stage.adobeccstatic.com/wamclient/0.1/wamclient.js';
   if (searchParams.has('inMilo')) {
     await loadScript('/libs/tools/wamClient/wamClient.js');
   } else {
-    await loadScript(
-      'https://stage.adobeccstatic.com/wamclient/0.1/wamclient.js'
-    );
+    await loadScript(scriptUrl);
   }
   getWAM(getConfig);
 };
@@ -179,5 +184,5 @@ export default async function initWAM(getConfig, loadIms, loadScript) {
     return;
   }
   if (!window.adobeIMS?.isSignedInUser()) return;
-  !wamInitialized && await loadWamConfig(getConfig, loadScript);
+  !wamInitialized && (await loadWamConfig(getConfig, loadScript));
 }
