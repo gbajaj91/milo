@@ -1122,6 +1122,9 @@ export async function loadArea(area = document) {
     });
   }
 
+  const { default: initWAM } = await import('../features/wam.js');
+  await initWAM(getConfig, loadIms, loadScript);
+
   const currentHash = window.location.hash;
   if (currentHash) {
     scrollToHashedElement(currentHash);

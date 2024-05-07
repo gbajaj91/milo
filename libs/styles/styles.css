@@ -393,12 +393,24 @@
   color: var(--color-white);
 }
 
+.con-button.blue.disabled {
+  background-color: grey;
+  border-color: grey;
+}
+
 .con-button.blue:hover,
 .con-button.blue:active {
   background: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
   color: var(--color-white);
 }
+
+.con-button.blue.disabled:hover,
+.con-button.blue.disabled:active {
+  background: grey;
+  border-color: grey;
+}
+
 
 .con-button.fill {
   background: var(--text-color);
