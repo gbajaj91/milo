@@ -167,7 +167,7 @@ const loadWamConfig = async (getConfig, loadScript) => {
       ? 'https://prod.adobeccstatic.com/wamclient/0.1/wamclient.js'
       : 'https://stage.adobeccstatic.com/wamclient/0.1/wamclient.js';
   if (searchParams.has('withoutCDN')) {
-    await loadScript('/libs/tools/wamClient/wamClient.js');
+    await loadScript('/libs/tools/wamclient/wamclient.js');
   } else {
     await loadScript(scriptUrl);
   }
