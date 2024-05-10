@@ -123,7 +123,6 @@ const enableWAMButton = () => {
   /** TODO: Optimize This Logic and localization for hardcoded values */
   wamData.addListener((appList) => {
     if (appList.length) {
-      console.log(appList);
       const wamButtons = document.querySelectorAll('a[href*="wamProduct-"]');
       wamButtons.forEach((button) => {
         const productCode = button.hash.split('-')[1];
@@ -169,7 +168,7 @@ const loadWamConfig = async (getConfig, loadScript) => {
     name === 'prod'
       ? 'https://prod.adobeccstatic.com/wamclient/0.1/wamclient.js'
       : 'https://stage.adobeccstatic.com/wamclient/0.1/wamclient.js';
-  if (searchParams.has('inMilo')) {
+  if (searchParams.has('withoutCDN')) {
     await loadScript('/libs/tools/wamClient/wamClient.js');
   } else {
     await loadScript(scriptUrl);
