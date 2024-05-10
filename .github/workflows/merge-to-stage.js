@@ -240,11 +240,11 @@ const main = async (params) => {
       repo,
       pull_number: stageToMainPR.number,
       team_reviewers: [
-        'adobecom/bacom-sot',
-        'adobecom/creative-cloud-sot',
-        'adobecom/document-cloud-sot',
-        'adobecom/miq-sot',
-        'adobecom/homepage-sot',
+        '@adobecom/bacom-sot',
+        '@adobecom/creative-cloud-sot',
+        '@adobecom/document-cloud-sot',
+        '@adobecom/miq-sot',
+        '@adobecom/homepage-sot',
       ],
     });
     return;
