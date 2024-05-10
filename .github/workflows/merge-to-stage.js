@@ -247,6 +247,7 @@ const main = async (params) => {
         'adobecom/homepage-sot',
       ],
     });
+    return;
     // TODO REMOVE
 
     console.log('has Stage to Main PR:', !!stageToMainPR);
