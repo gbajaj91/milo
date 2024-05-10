@@ -239,13 +239,7 @@ const main = async (params) => {
       owner,
       repo,
       pull_number: stageToMainPR.number,
-      team_reviewers: [
-        '@adobecom/bacom-sot',
-        '@adobecom/creative-cloud-sot',
-        '@adobecom/document-cloud-sot',
-        '@adobecom/miq-sot',
-        '@adobecom/homepage-sot',
-      ],
+      team_reviewers: ['adobecom/bacom-sot'],
     });
     return;
     // TODO REMOVE
