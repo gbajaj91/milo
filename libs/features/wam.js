@@ -106,9 +106,7 @@ const getWAM = async (getConfig) => {
       clientTokenExpiryCheck: () => {
         return true;
       },
-      onClientStateCallback: (clientState) => {
-        console.log(clientState);
-      },
+      onClientStateCallback: () => {},
       onMessageCallback: (statusMessage) => {
         const thorProductsList =
           window.CCWamclient.processMessage(statusMessage);
