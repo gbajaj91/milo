@@ -117,6 +117,12 @@ const getWAM = async (getConfig) => {
   window?.CCWamclient?.initialize(initConfigJson);
 };
 
+const removeAllClickListeners = (element) => {
+  const clone = element.cloneNode(true);
+  element.parentNode.replaceChild(clone, element);
+  return clone;
+}
+
 const enableWAMButton = () => {
   /** TODO: Optimize This Logic and localization for hardcoded values */
   wamData.addListener((appList) => {
@@ -142,12 +148,12 @@ const enableWAMButton = () => {
               button.textContent = 'install';
             }
           }
+          const newButton = removeAllClickListeners(button);
           const buttonAction = (e) => {
             e.preventDefault();
             productDetail.action();
           };
-          button.removeEventListener('click', buttonAction);
-          button.addEventListener('click', buttonAction);
+          newButton.addEventListener('click', buttonAction);
         }
       });
     }
