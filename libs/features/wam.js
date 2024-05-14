@@ -134,19 +134,34 @@ const enableWAMButton = () => {
         if (productDetail) {
           const { statusCode, statusText } = productDetail;
           if (statusCode === 0) {
+            let latestStatus = "";
+              if (statusText === 'inProgress') {
+                latestStatus = 'Installing';
+              }
             button.classList.add('disabled');
             button.setAttribute('disabled', 'disabled');
-            button.textContent = statusText;
+            button.textContent = latestStatus || statusText;
           } else {
             button.classList.remove('disabled');
             button.removeAttribute('disabled');
             if (statusCode === 1) {
-              button.textContent = 'open';
+              button.textContent = 'Open';
             } else if (statusCode === 2) {
-              button.textContent = 'update';
+              button.textContent = 'Update';
             } else {
-              button.textContent = 'install';
+              let latestStatus = "";
+              if (statusText === 'appSessionTriggered') {
+                latestStatus = 'Waiting';
+              }
+              button.textContent = latestStatus || statusText || 'Install';
             }
+          }
+          if (statusText) {
+            button.classList.add('disabled');
+            button.setAttribute('disabled', 'disabled');
+          } else {
+            button.classList.remove('disabled');
+            button.removeAttribute('disabled');
           }
           const newButton = removeAllClickListeners(button);
           const buttonAction = (e) => {
