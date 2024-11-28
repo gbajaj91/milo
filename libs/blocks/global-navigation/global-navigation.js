@@ -1087,10 +1087,12 @@ export default async function init(block) {
     content,
     block,
   });
-  await gnav.init();
-  block.setAttribute('daa-im', 'true');
-  const mepMartech = mep?.martech || '';
-  block.setAttribute('daa-lh', `gnav|${getExperienceName()}${mepMartech}`);
-  if (isDarkMode()) block.classList.add('feds--dark');
+  if(this.useUniversalNav) {
+    await gnav.init();
+    block.setAttribute('daa-im', 'true');
+    const mepMartech = mep?.martech || '';
+    block.setAttribute('daa-lh', `gnav|${getExperienceName()}${mepMartech}`);
+    if (isDarkMode()) block.classList.add('feds--dark');
+  }
   return gnav;
 }
