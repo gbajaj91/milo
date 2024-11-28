@@ -842,6 +842,8 @@ async function loadFooter() {
     footer.remove();
     return;
   }
+  footer.remove();
+  return;
   footer.className = footerMeta || 'global-footer';
   await loadBlock(footer);
 }
