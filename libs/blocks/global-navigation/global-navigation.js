@@ -300,7 +300,8 @@ class Gnav {
     const meta = getMetadata('universal-nav')?.toLowerCase();
     this.universalNavComponents = meta?.split(',').map((option) => option.trim())
       .filter((component) => Object.keys(CONFIG.universalNav.components).includes(component) || component === 'signup');
-    this.useUniversalNav = meta === 'on' || !!this.universalNavComponents?.length;
+    // this.useUniversalNav = meta === 'on' || !!this.universalNavComponents?.length;
+    this.useUniversalNav = false;
     if (this.useUniversalNav) {
       delete this.blocks.profile;
       this.blocks.universalNav = toFragment`<div class="feds-utilities"></div>`;
