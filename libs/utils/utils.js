@@ -762,6 +762,8 @@ function decorateHeader() {
     header.remove();
     return;
   }
+  header.remove();
+  return;
   header.className = headerMeta || 'global-navigation';
   const metadataConfig = getMetadata('breadcrumbs')?.toLowerCase()
   || getConfig().breadcrumbs;
